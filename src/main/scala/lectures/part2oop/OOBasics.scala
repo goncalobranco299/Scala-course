@@ -39,17 +39,6 @@ class Person(name: String, val age: Int) {
   def this() = this("John Doe")
 }
 
-/*
-    Novel and a writer
-
-    Writer: first name, surname, year
-      - method fullname
-
-    Novel: name, uear of release, author
-    - authorAge
-    - isWrittenBy (author)
-    - copy (new year of release) = new istance of Novel
- */
 
 class Writer(firstName: String, surname: String, val year: Int)  {
   def fullName: String = firstName + " " + surname
