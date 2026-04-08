@@ -20,6 +20,12 @@ object joking extends App {
 
   println(greet("João,", 18))
 
+  class Person(name:String, age: Int) {
+    def greet: String = s"Hello my name is $name, and I have $age years old"
+
+  }
+  val mary = new Person("Mary",15)
+  println(mary.greet)
 
   def factorial(n: Int): Int =
     if (n <= 0) 1
