@@ -152,8 +152,9 @@ case class Cons[+A](h: A, t: MyList[A]) extends MyList[A] {
     = [].fold(6) (+)
     = 6
    */
-  def fold[B](start: B)(operator: (B, A) => B): B =
+  def fold[B](start: B)(operator: (B, A) => B): B = {
     t.fold(operator(start, h)) (operator)
+  }
 }
 
 object LisTest extends App {
@@ -167,7 +168,7 @@ object LisTest extends App {
   println(listOfStrings.toString)
 
   println(listOfIntegers.map(_ * 2).toString)
-
+  
 
   println(listOfIntegers.filter(_ % 2 == 0).toString)
 
@@ -178,6 +179,13 @@ object LisTest extends App {
   listOfIntegers.foreach(println)
   println(listOfIntegers.sort((x, y) => y - x))
   println(anotherlistOfIntegers.zipWith[String, String](listOfStrings, _ + "-" + _))
-  
+
   listOfIntegers.fold(0)(_ + _)
+
+  // for comprehensions
+  val combinations = for {
+    n <- listOfIntegers
+    string <- listOfStrings
+  } yield n + "-" + string
+  println(combinations)
 }
